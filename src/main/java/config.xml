@@ -6,17 +6,29 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-<bean class="com.springcore.Student" name="Student">
-	<property name="studentId">
-		<value>1992326</value>
-	</property>
-	<property name="studentName">
-		<value>Manas Ranjan Mallick</value>
-	</property>
-	<property name="studentAddress">
-		<value>Bhubaneswar</value>
-	</property>
-	
-</bean>
+	<!--3 ways to inject Primitive type values in Setter injection-->
+	<!--Property injection using value TAG-->
+	<bean class="com.springcore.Student" name="Student1">
+		<property name="studentId">
+			<value>1992326</value>
+		</property>
+		<property name="studentName">
+			<value>Manas Ranjan Mallick</value>
+		</property>
+		<property name="studentAddress">
+			<value>Bhubaneswar</value>
+		</property>
+	</bean>
+
+	<!--Property injection using value as attribute-->
+	<bean class="com.springcore.Student" name="Student2">
+		<property name="studentId" value="1992325" />
+		<property name="studentName" value="Tapas Ranjan Mallick" />
+		<property name="studentAddress" value="Bhubaneswar" />
+	</bean>
+
+	<!--Property injection using p schema-->
+	<bean class="com.springcore.Student" name="Student3" p:studentId="1992327"
+		p:studentName="Diptimayee Mallick" p:studentAddress="Bhubaneswar" />
 
 </beans>
