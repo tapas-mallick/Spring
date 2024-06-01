@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<context:annotation-config />
+	
+	<!--Standalone collections-->
+	
+	<!--Standalone List-->
+	<util:list list-class="java.util.LinkedList" id="frndsList">
+			<value>Jyoti</value>
+			<value>Sangram</value>
+			<value>Anukul</value>
+			<value>Amit</value>
+	</util:list>
+	
+	<!--Standalone Map-->
+	
+	<util:map map-class="java.util.HashMap" id="fees">
+		<entry key="Java Programming" value="4000"/>
+		<entry key="Python Programming" value="3000"/>
+		<entry key="C# Programming" value="3000"/>
+	</util:map>
+	
+	<!--Standalone Properties-->
+	
+	<util:properties id="dbConfig">
+		<prop key="host ip">172.18.129.220</prop>
+		<prop key="dbname">ClientDB</prop>
+		<prop key="username">NewUser</prop>
+		<prop key="password">NewUser@123</prop>
+
+	</util:properties>
+		
+	<bean class="com.springcore.standalone.collections.Person" name="person">
+		<property name="friends">
+			<ref bean="frndsList"/>
+		</property>
+		<property name="feeStructure" ref="fees"/>
+		<property name="props" ref="dbConfig"/>
+	</bean>
+
+
+</beans>
